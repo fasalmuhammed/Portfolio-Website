@@ -13,9 +13,9 @@ export default function Hero({ onOpenChat }) {
         >
 
           <div className="space-y-5">
-            <h1 className="text-[3rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[3.7rem] sm:text-[5.8rem] lg:text-[7.2rem]" style={{ color: '#F4EBDD' }}>
+            <h1 className="max-w-full text-[2.75rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[3.7rem] sm:text-[5.8rem] lg:text-[7.2rem]" style={{ color: '#F4EBDD' }}>
               Hi, I'm
-              <span className="block break-words" style={{ color: '#D8C79D' }}>
+              <span className="block max-w-full break-words" style={{ color: '#D8C79D', overflowWrap: 'anywhere' }}>
                 Muhammed Fasal V
               </span>
             </h1>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Plus, Trash2, Edit2, Check, X, LogOut } from 'lucide-react'
+import { apiUrl } from '../lib/api'
 
 const CATEGORIES = ['bio', 'career', 'skills', 'projects', 'interests', 'contact', 'availability']
 
@@ -21,7 +22,7 @@ export default function Admin() {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/admin/knowledge', {
+      const res = await fetch(apiUrl('/admin/knowledge'), {
         headers: { 'x-admin-key': keyInput },
       })
       if (res.ok) {
@@ -39,14 +40,14 @@ export default function Admin() {
   }
 
   async function fetchItems() {
-    const res = await fetch('/admin/knowledge', { headers: { 'x-admin-key': apiKey } })
+    const res = await fetch(apiUrl('/admin/knowledge'), { headers: { 'x-admin-key': apiKey } })
     const data = await res.json()
     setItems(data)
   }
 
   async function deleteItem(id) {
     if (!confirm('Delete this entry?')) return
-    await fetch(`/admin/knowledge/${id}`, {
+    await fetch(apiUrl(`/admin/knowledge/${id}`), {
       method: 'DELETE',
       headers: { 'x-admin-key': apiKey },
     })
@@ -55,7 +56,7 @@ export default function Admin() {
   }
 
   async function saveEdit(id) {
-    await fetch(`/admin/knowledge/${id}`, {
+    await fetch(apiUrl(`/admin/knowledge/${id}`), {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'x-admin-key': apiKey },
       body: JSON.stringify(editData),
@@ -67,7 +68,7 @@ export default function Admin() {
 
   async function addItem() {
     if (!addForm.answer.trim()) return
-    await fetch('/admin/knowledge', {
+    await fetch(apiUrl('/admin/knowledge'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-admin-key': apiKey },
       body: JSON.stringify(addForm),

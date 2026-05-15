@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bot, MessageCircle, Send, X } from 'lucide-react'
+import { apiUrl } from '../lib/api'
 
 const SUGGESTIONS = [
   'What are your skills?',
@@ -43,14 +44,18 @@ export default function Chatbot({ externalOpen, onClose }) {
     const newHistory = [...history, { role: 'user', content: msg }]
 
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch(apiUrl('/api/chat'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg, history }),
       })
-      const data = await res.json()
+      const contentType = res.headers.get('content-type') || ''
+      const data = contentType.includes('application/json') ? await res.json() : null
       if (!res.ok) {
-        throw new Error(data.detail || `Backend error: ${res.status}`)
+        throw new Error(data?.detail || `Backend error: ${res.status}`)
+      }
+      if (!data) {
+        throw new Error('Chat API returned HTML instead of JSON. Check VITE_API_BASE_URL in your hosting settings.')
       }
 
       const reply = data.reply || 'Sorry, something went wrong.'
