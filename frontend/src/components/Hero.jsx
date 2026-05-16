@@ -15,7 +15,7 @@ export default function Hero({ onOpenChat }) {
  <h1 className="text-[2.2rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[2.8rem] sm:text-[3.5rem] lg:text-[4.5rem]" style={{ color: '#F4EBDD' }}>
   Hi, I'm
   <span className="block" style={{ color: '#D8C79D', whiteSpace: 'nowrap' }}>
-    Muhammed Fasal V
+    Muhammed <br /> Fasal V
   </span>
 </h1>
           </div>
