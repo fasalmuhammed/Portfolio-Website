@@ -11,18 +11,17 @@ export default function Hero({ onOpenChat }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-
           <div className="space-y-5">
-            <h1 className="max-w-full text-[2.75rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[3.7rem] sm:text-[5.8rem] lg:text-[7.2rem]" style={{ color: '#F4EBDD' }}>
+            <h1 className="text-[2.4rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[3.2rem] sm:text-[4.2rem] lg:text-[5.5rem]" style={{ color: '#F4EBDD' }}>
               Hi, I'm
-              <span className="block max-w-full break-words" style={{ color: '#D8C79D', overflowWrap: 'anywhere' }}>
+              <span className="block" style={{ color: '#D8C79D', whiteSpace: 'nowrap' }}>
                 Muhammed Fasal V
               </span>
             </h1>
           </div>
 
           <p className="mt-7 max-w-xl text-base leading-relaxed md:text-lg" style={{ color: '#B8AD9A' }}>
-           MCA graduate focused on AI, automation, and scalable full stack applications that solve real-world problems.
+            MCA graduate focused on AI, automation, and scalable full stack applications that solve real-world problems.
           </p>
 
         </motion.div>
