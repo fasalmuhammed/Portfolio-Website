@@ -1,2 +1,15 @@
+# Dependencies
 node_modules
 dist
+
+# Environment files
+.env
+*.env
+
+# Build output
+dist
+.vite
+
+# OS
+.DS_Store
+Thumbs.db
