@@ -12,9 +12,9 @@ export default function Hero({ onOpenChat }) {
           transition={{ duration: 0.7 }}
         >
           <div className="space-y-5">
-            <h1 className="text-[2.2rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[2.8rem] sm:text-[3.5rem] lg:text-[4.5rem]" style={{ color: '#F4EBDD' }}>
-              Hi, I am
-              <span className="block" style={{ color: '#D8C79D', whiteSpace: 'nowrap' }}>
+            <h1 className="max-w-full text-[2.75rem] font-black leading-[0.94] tracking-normal min-[430px]:text-[3.7rem] sm:text-[5.8rem] lg:text-[7.2rem]" style={{ color: '#F4EBDD' }}>
+              Hi, I'm
+              <span className="block" style={{ color: '#D8C79D', wordBreak: 'keep-all', overflowWrap: 'normal' }}>
                 Muhammed Fasal V
               </span>
             </h1>
